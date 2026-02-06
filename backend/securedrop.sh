@@ -1,11 +1,11 @@
 #!/bin/bash
 
-APP_NAME="secure-file-share"
-APP_DIR="/opt/secure-file-share/backend"
-VENV_DIR="/opt/secure-file-share/venv"
+APP_NAME="securedrop"
+APP_DIR="/opt/securedrop/backend"
+VENV_DIR="/opt/securedrop/.venv"
 LOG_DIR="/var/log"
-LOG_FILE="/var/log/secure-file-share.log"
-PID_FILE="/var/run/secure-file-share.pid"
+LOG_FILE="/var/log/securedrop.log"
+PID_FILE="/var/run/securedrop.pid"
 
 HOST="0.0.0.0"
 PORT="8080"
