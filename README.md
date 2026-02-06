@@ -72,6 +72,13 @@ tail -f /var/log/securedrop.log
 > INFO:     10.255.254.10:46774 - "POST /download/5 HTTP/1.1" 303 See Other
 > INFO:     10.255.254.10:46774 - "GET /download/5/success HTTP/1.1" 200 OK
 > INFO:     10.255.254.10:46774 - "GET /download/5/file HTTP/1.1" 200 OK
+>
+# SecureDrop Screenshots
+![Login Page](https://github.com/chandranjoy/SecureDrop/blob/main/screenshots/SecureDrop_Login.png)
+![Dashboard](https://github.com/chandranjoy/SecureDrop/blob/main/screenshots/SecureDrop_Dashboard.png)
+![Dashboard](https://github.com/chandranjoy/SecureDrop/blob/main/screenshots/SecureDrop_File_Download.png)
+![Dashboard](https://github.com/chandranjoy/SecureDrop/blob/main/screenshots/SecureDrop_File_Download_Success.png)
+
 > INFO:     10.255.254.10:56564 - "GET /download/ HTTP/1.1" 404 Not Found
 > INFO:     10.255.254.10:43744 - "GET /admin/logout HTTP/1.1" 302 Found
 > INFO:     10.255.254.10:43744 - "GET /admin/login HTTP/1.1" 200 OK
