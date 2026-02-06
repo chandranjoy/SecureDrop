@@ -1,14 +1,14 @@
 from pathlib import Path
 
 # ---- BASE PATHS ----
-BASE_DIR = Path("/opt/secure-file-share/backend")
+BASE_DIR = Path("/opt/securedrop/backend")
 
 UPLOAD_DIR = BASE_DIR / "uploads"
 DATA_DIR = BASE_DIR / "data"
 
-DATABASE_URL = "sqlite:////opt/secure-file-share/backend/data/data.db"
+DATABASE_URL = "sqlite:////opt/securedrop/backend/data/data.db"
 
 # ---- SECURITY (AUTH) ----
-SECRET_KEY = "Zf0rt0_2O26^"
+SECRET_KEY = "YOUR_PASSWORD"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
