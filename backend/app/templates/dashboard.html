@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecureDrop Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+
+  <script>
+    function copyLink(fileId) {
+      const url = `${window.location.origin}/download/${fileId}`;
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Download link copied:\n" + url);
+      });
+    }
+  </script>
+</head>
+<body>
+<p>
+  <a href="/admin/audit" class="btn">📊 View Audit Logs</a>
+</p>
+
+<p style="text-align:right;">
+  Logged in as <strong>{{ admin }}</strong> |
+  <a href="/admin/logout" style="color:#38bdf8;">Logout</a>
+</p>
+
+<div class="container">
+  <h1>SecureDrop File Upload</h1>
+
+  <!-- UPLOAD NEW FILE -->
+  <form action="/admin/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <input name="file_password" placeholder="File Password" required>
+    <button>Upload</button>
+  </form>
+
+  <h2>Uploaded Files</h2>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Downloads</th>
+      <th>Limits</th>
+      <th>Link</th>
+      <th>Replace</th>
+      <th>Delete</th>
+    </tr>
+
+    {% for f in files %}
+    <tr>
+      <td>{{ f.id }}</td>
+      <td>{{ f.original_name }}</td>
+      <td>{{ f.download_count }}</td>
+
+      <!-- LIMITS -->
+      <td style="font-size:13px;">
+        {% if f.max_downloads %}
+          Max: {{ f.max_downloads }}<br>
+        {% else %}
+          Max: ∞<br>
+        {% endif %}
+
+        {% if f.expires_at %}
+          Expires:<br>{{ f.expires_at }}
+        {% else %}
+          No expiry
+        {% endif %}
+      </td>
+
+      <!-- COPY LINK -->
+      <td>
+        <button onclick="copyLink({{ f.id }})"
+                style="background:#0ea5e9;">
+          Copy Link
+        </button>
+      </td>
+
+      <!-- REPLACE FILE -->
+      <td>
+        <form action="/admin/replace/{{ f.id }}" method="post"
+              enctype="multipart/form-data"
+              style="display:flex; gap:6px;">
+          <input type="file" name="file" required style="width:150px;">
+          <button style="background:#f59e0b;">Replace</button>
+        </form>
+      </td>
+
+      <!-- DELETE FILE -->
+      <td>
+        <form action="/admin/delete/{{ f.id }}" method="post"
+              onsubmit="return confirm('Delete this file permanently?');">
+          <button style="background:#dc2626;">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+</body>
+</html>

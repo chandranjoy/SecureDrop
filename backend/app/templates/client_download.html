@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zforto Secure Download</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>Zforto Secure File Download</h2>
+
+  <p><strong>File:</strong> {{ file.original_name }}</p>
+
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+
+  <form method="post" autocomplete="off">
+  <input type="password" name="password" placeholder="File password" required>
+  <button>Download</button>
+  </form>
+  
+  <script>
+  // Prevent form resubmission and clear POST state
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+
+  // Clear password field after submit/download
+  const pwd = document.querySelector('input[type="password"]');
+  if (pwd) {
+    pwd.value = "";
+  }
+  </script>
+
+
+  {% if file.max_downloads %}
+    <p>Remaining downloads:
+      {{ file.max_downloads - file.download_count }}
+    </p>
+  {% endif %}
+
+  {% if file.expires_at %}
+    <p>Expires at: {{ file.expires_at }}</p>
+  {% endif %}
+</div>
+
+</body>
+</html>

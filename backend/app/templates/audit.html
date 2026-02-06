@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ZForto Download Audit Logs</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<p style="text-align:right;">
+  Logged in as <strong>{{ admin }}</strong> |
+  <a href="/admin/dashboard" style="color:#38bdf8;">⬅ Back to Dashboard</a> |
+  <a href="/admin/logout" style="color:#38bdf8;">Logout</a>
+</p>
+
+<div class="container">
+  <h1>📊 Download Audit Logs</h1>
+
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>File</th>
+      <th>IP Address</th>
+    </tr>
+
+    {% for log, file in logs %}
+    <tr>
+      <td>{{ log.timestamp }}</td>
+      <td>{{ file.original_name }}</td>
+      <td>{{ log.ip_address }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+</body>
+</html>

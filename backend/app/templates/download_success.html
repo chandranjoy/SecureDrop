@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download Successful</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>✅ Download Started</h2>
+  <p>Your file is downloading.</p>
+  <p>If it didn’t start automatically, click below.</p>
+
+  <a href="/download/{{ file_id }}/file" class="btn">
+    Download Again
+  </a>
+</div>
+
+<!-- Auto-start download -->
+<script>
+  window.onload = function () {
+    window.location.href = "/download/{{ file_id }}/file";
+  };
+</script>
+
+</body>
+</html>
