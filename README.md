@@ -4,16 +4,12 @@
 # Create the directory and environment
 ```bash
 mkdir -p /opt/securedrop
-```
-```bash
 cd /opt/securedrop
 ```
 # #
 # Install and activate VENV
 ```bash
 python3 -m venv .venv
-```
-```bash
 source .venv/bin/activate
 ```
 # #
@@ -27,17 +23,17 @@ pip install --upgrade pip
 ```bash
 cat requirements.txt
 ```
-fastapi
-uvicorn
-sqlalchemy
-python-jose
-passlib[bcrypti]
-bcrypt==4.0.1
-python-multipart
-python-dotenv
-email-validator
-jinja2
-alembic
+> fastapi
+> uvicorn
+> sqlalchemy
+> python-jose
+> passlib[bcrypti]
+> bcrypt==4.0.1
+> python-multipart
+> python-dotenv
+> email-validator
+> jinja2
+> alembic
 
 # #
 # Install a packages as per requirements
@@ -48,8 +44,6 @@ pip install -r requirements.txt
 # Now ready to start the SecureDrop app
 ```bash
 chmod +x /opt/securedrop/securedrop.sh
-```
-```bash
 ./securedrop.sh start
 ```
 # #
