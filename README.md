@@ -1,6 +1,6 @@
 # SecureDrop
-Secured way of Simple File sharing
-
+ - Secured way of Simple File sharing - 
+# #
 # Create the directory and environment
 mkdir -p /opt/securedrop
 cd /opt/securedrop
