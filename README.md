@@ -41,5 +41,5 @@ Running (PID xxxxxx)
 lsof -i tcp:8080
 COMMAND    PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
 uvicorn xxxxxx root    7u  IPv4 9108216      0t0  TCP *:http-alt (LISTEN)
-# ++++++++++++++++++++++++++++++++ #
+# #
 tail -f /var/log/securedrop.log
