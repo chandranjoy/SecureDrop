@@ -58,11 +58,13 @@ chmod +x /opt/securedrop/securedrop.sh
 lsof -i tcp:8080
 ```
 > COMMAND    PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+> 
 > uvicorn 123456 root    7u  IPv4 9108216      0t0  TCP *:http-alt (LISTEN)
 # #
 ```bash
 tail -f /var/log/securedrop.log
 ```
+>
 > INFO:     10.255.254.10:57590 - "GET /admin/login HTTP/1.1" 200 OK
 > INFO:     10.255.254.10:39868 - "POST /admin/login HTTP/1.1" 302 Found
 > INFO:     10.255.254.10:39868 - "GET /admin/dashboard HTTP/1.1" 200 OK
@@ -73,3 +75,4 @@ tail -f /var/log/securedrop.log
 > INFO:     10.255.254.10:56564 - "GET /download/ HTTP/1.1" 404 Not Found
 > INFO:     10.255.254.10:43744 - "GET /admin/logout HTTP/1.1" 302 Found
 > INFO:     10.255.254.10:43744 - "GET /admin/login HTTP/1.1" 200 OK
+>
