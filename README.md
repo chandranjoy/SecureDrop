@@ -2,29 +2,29 @@
 - Secured way of Simple File sharing
 # #
 # Create the directory and environment
-```
+```bash
 mkdir -p /opt/securedrop
 ```
-```
+```bash
 cd /opt/securedrop
 ```
 # #
 # Install and activate VENV
-```
+```bash
 python3 -m venv .venv
 ```
-```
+```bash
 source .venv/bin/activate
 ```
 # #
 # Install required packages
 >#Upgrade pip first (recommended)
-```
+```bash
 pip install --upgrade pip
 ```
 # #
 # Inside requirements.txt
-```
+```bash
 cat requirements.txt
 ```
 fastapi
@@ -41,32 +41,32 @@ alembic
 
 # #
 # Install a packages as per requirements
-```
+```bash
 pip install -r requirements.txt
 ```
 # #
 # Now ready to start the SecureDrop app
-```
+```bash
 chmod +x /opt/securedrop/securedrop.sh
 ```
-```
+```bash
 ./securedrop.sh start
 ```
 # #
 # Check the status
-```
+```bash
 ./securedrop.sh status
 ```
 >Running (PID 123456)
 # #
 # Cross check
-```
+```bash
 lsof -i tcp:8080
 ```
 >COMMAND    PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
 >uvicorn 123456 root    7u  IPv4 9108216      0t0  TCP *:http-alt (LISTEN)
 # #
-```
+```bash
 tail -f /var/log/securedrop.log
 ```
 >INFO:     10.255.254.10:57590 - "GET /admin/login HTTP/1.1" 200 OK
