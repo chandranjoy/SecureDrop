@@ -5,7 +5,7 @@ from app.database import SessionLocal
 from app.models import Admin
 from app.auth import hash_password
 
-load_dotenv("/opt/secure-file-share/backend/.env")
+load_dotenv("/opt/securedrop/backend/.env")
 
 ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
